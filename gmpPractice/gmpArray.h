@@ -10,5 +10,6 @@ public:
 	~gmpArray();
 
 	mpz_t& operator[] (int number);
+	void print();
 };
 

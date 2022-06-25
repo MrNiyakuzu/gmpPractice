@@ -22,3 +22,11 @@ mpz_t& gmpArray::operator[](int number)
 {
 	return values[number];
 }
+
+void gmpArray::print()
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << values[i] << std::endl;
+	}
+}
