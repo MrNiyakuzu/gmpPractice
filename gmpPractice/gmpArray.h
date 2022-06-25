@@ -12,5 +12,7 @@ public:
 	mpz_t& operator[] (int number);
 	void print();
 	void resize(int number);
+	void sum(gmpArray& gmpAr1, gmpArray& gmpAr2);
+	void mul(gmpArray& gmpAr1, gmpArray& gmpAr2);
 };
 

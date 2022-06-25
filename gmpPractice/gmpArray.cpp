@@ -47,3 +47,41 @@ void gmpArray::resize(int number)
 	values = temp;
 	n = number;
 }
+
+void gmpArray::sum(gmpArray& gmpAr1, gmpArray& gmpAr2)
+{
+	if (gmpAr1.n != gmpAr2.n)
+	{
+		std::cout << "Can't summurize, array's lenghts are not equal" << std::endl;
+	}
+	else
+	{
+		if (n != gmpAr1.n)
+		{
+			this->resize(gmpAr1.n);
+		}
+		for (int i = 0; i < n; i++)
+		{
+			mpz_add(values[i], gmpAr1.values[i], gmpAr2.values[i]);
+		}
+	}
+}
+
+void gmpArray::mul(gmpArray& gmpAr1, gmpArray& gmpAr2)
+{
+	if (gmpAr1.n != gmpAr2.n)
+	{
+		std::cout << "Can't multiply, array's lenghts are not equal" << std::endl;
+	}
+	else
+	{
+		if (n != gmpAr1.n)
+		{
+			this->resize(gmpAr1.n);
+		}
+		for (int i = 0; i < n; i++)
+		{
+			mpz_mul(values[i], gmpAr1.values[i], gmpAr2.values[i]);
+		}
+	}
+}
