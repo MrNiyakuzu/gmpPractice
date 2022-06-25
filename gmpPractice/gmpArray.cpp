@@ -85,3 +85,51 @@ void gmpArray::mul(gmpArray& gmpAr1, gmpArray& gmpAr2)
 		}
 	}
 }
+
+void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
+{
+	if (gmpAr1.n != gmpAr2.n)
+	{
+		std::cout << "Can't summurize, array's lenghts are not equal" << std::endl;
+	}
+	else
+	{
+		if (n != gmpAr1.n)
+		{
+			this->resize(gmpAr1.n);
+		}
+
+		int threadsNum = 2;
+		omp_set_num_threads(threadsNum);
+		int i = 0;
+#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
+		for (i = 0; i < n; i++)
+		{
+			mpz_add(values[i], gmpAr1.values[i], gmpAr2.values[i]);
+		}
+	}
+}
+
+void gmpArray::mulOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
+{
+	if (gmpAr1.n != gmpAr2.n)
+	{
+		std::cout << "Can't multiply, array's lenghts are not equal" << std::endl;
+	}
+	else
+	{
+		if (n != gmpAr1.n)
+		{
+			this->resize(gmpAr1.n);
+		}
+
+		int threadsNum = 2;
+		omp_set_num_threads(threadsNum);
+		int i = 0;
+#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
+		for (i = 0; i < n; i++)
+		{
+			mpz_mul(values[i], gmpAr1.values[i], gmpAr2.values[i]);
+		}
+	}
+}
