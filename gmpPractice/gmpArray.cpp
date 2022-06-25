@@ -30,3 +30,20 @@ void gmpArray::print()
 		std::cout << values[i] << std::endl;
 	}
 }
+
+void gmpArray::resize(int number)
+{
+	mpz_t* temp = new mpz_t[number];
+	for (int i = 0; i < number; i++)
+	{
+		mpz_init(temp[i]);
+		if (i < n)
+		{
+			mpz_set(temp[i], values[i]);
+			mpz_clear(values[i]);
+		}
+	}
+	delete[] values;
+	values = temp;
+	n = number;
+}
