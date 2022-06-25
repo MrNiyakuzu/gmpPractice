@@ -8,5 +8,7 @@ private:
 public:
 	gmpArray(int count = 0);
 	~gmpArray();
+
+	mpz_t& operator[] (int number);
 };
 

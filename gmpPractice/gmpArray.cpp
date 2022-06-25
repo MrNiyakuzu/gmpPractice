@@ -17,3 +17,8 @@ gmpArray::~gmpArray()
 	}
 	delete[] values;
 }
+
+mpz_t& gmpArray::operator[](int number)
+{
+	return values[number];
+}
