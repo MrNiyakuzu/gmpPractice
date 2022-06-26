@@ -31,6 +31,13 @@ void gmpArray::print()
 	}
 }
 
+void gmpArray::clearValues()
+{
+	for (int i = 0; i < n; i++)
+	{
+		mpz_clear(values[i]);
+	}
+}
 void gmpArray::resize(int number)
 {
 	mpz_t* temp = new mpz_t[number];
@@ -40,9 +47,9 @@ void gmpArray::resize(int number)
 		if (i < n)
 		{
 			mpz_set(temp[i], values[i]);
-			mpz_clear(values[i]);
 		}
 	}
+	clearValues();
 	delete[] values;
 	values = temp;
 	n = number;
@@ -99,8 +106,6 @@ void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
 			this->resize(gmpAr1.n);
 		}
 
-		int threadsNum = 2;
-		omp_set_num_threads(threadsNum);
 		int i = 0;
 #pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
 		for (i = 0; i < n; i++)
@@ -123,13 +128,21 @@ void gmpArray::mulOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
 			this->resize(gmpAr1.n);
 		}
 
-		int threadsNum = 2;
-		omp_set_num_threads(threadsNum);
 		int i = 0;
 #pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
 		for (i = 0; i < n; i++)
 		{
 			mpz_mul(values[i], gmpAr1.values[i], gmpAr2.values[i]);
 		}
+	}
+}
+
+void gmpArray::setRandom(int k)
+{
+	gmp_randstate_t state;
+	gmp_randinit_mt(state);
+	for (int i = 0; i < n; i++)
+	{
+		mpz_rrandomb(values[i], state, k);
 	}
 }
