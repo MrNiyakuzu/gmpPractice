@@ -9,31 +9,27 @@
 std::string timeTest(int ar_size, int pow, int num_mes, std::string task, int numThreads);
 int main()
 {
-    int n, k, m = 15;
+    int n, k = 2000, m = 75;
     std::ofstream fout("time.csv");
     for (int j = 1; j < 5; j++)
     {
         if (j == 1)
         {
             n = 10000;
-            k = 1000;
         }
 
         if (j == 2)
         {
-            n = 10000;
-            k = 2000;
+            n = 25000;
         }
 
         if (j == 3)
         {
             n = 50000;
-            k = 1000;
         }
         if (j == 4)
         {
-            n = 50000;
-            k = 2000;
+            n = 100000;
         }
 
         for (int i = 1; i < 5; i++)
@@ -94,7 +90,7 @@ std::string timeTest(int ar_size, int pow, int num_mes, std::string task, int nu
 
     std::string str;
     str = "Number of threads= " + std::to_string(numThreads);
-    str += ", numbers in range 2^(" + std::to_string(pow) + "-1), 2^" + std::to_string(pow) + "-1";
+    //str += ", numbers in range 2^(" + std::to_string(pow) + "-1), 2^" + std::to_string(pow) + "-1";
     str += ", arrays' size= " + std::to_string(ar_size);
     str += ", average time of " + task + "= " + std::to_string(average_time / (num_mes)) + "ms\n";
 

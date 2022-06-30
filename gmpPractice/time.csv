@@ -1,40 +1,40 @@
-Number of threads= 1, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of sumOMP= 1.066667ms
-Number of threads= 2, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of sumOMP= 1.000000ms
-Number of threads= 3, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of sumOMP= 1.000000ms
-Number of threads= 4, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of sumOMP= 1.000000ms
+Number of threads= 1, arrays' size= 10000, average time of sumOMP= 1.213333ms
+Number of threads= 2, arrays' size= 10000, average time of sumOMP= 1.133333ms
+Number of threads= 3, arrays' size= 10000, average time of sumOMP= 1.093333ms
+Number of threads= 4, arrays' size= 10000, average time of sumOMP= 1.253333ms
 
-Number of threads= 1, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of mulOMP= 54.666667ms
-Number of threads= 2, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of mulOMP= 100.466667ms
-Number of threads= 3, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of mulOMP= 77.333333ms
-Number of threads= 4, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 10000, average time of mulOMP= 77.866667ms
+Number of threads= 1, arrays' size= 10000, average time of mulOMP= 139.933333ms
+Number of threads= 2, arrays' size= 10000, average time of mulOMP= 141.600000ms
+Number of threads= 3, arrays' size= 10000, average time of mulOMP= 141.453333ms
+Number of threads= 4, arrays' size= 10000, average time of mulOMP= 143.773333ms
 
-Number of threads= 1, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of sumOMP= 2.933333ms
-Number of threads= 2, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of sumOMP= 2.266667ms
-Number of threads= 3, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of sumOMP= 2.400000ms
-Number of threads= 4, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of sumOMP= 2.933333ms
+Number of threads= 1, arrays' size= 25000, average time of sumOMP= 3.866667ms
+Number of threads= 2, arrays' size= 25000, average time of sumOMP= 7.146667ms
+Number of threads= 3, arrays' size= 25000, average time of sumOMP= 3.546667ms
+Number of threads= 4, arrays' size= 25000, average time of sumOMP= 3.213333ms
 
-Number of threads= 1, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of mulOMP= 240.066667ms
-Number of threads= 2, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of mulOMP= 235.800000ms
-Number of threads= 3, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of mulOMP= 238.266667ms
-Number of threads= 4, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 10000, average time of mulOMP= 238.133333ms
+Number of threads= 1, arrays' size= 25000, average time of mulOMP= 354.280000ms
+Number of threads= 2, arrays' size= 25000, average time of mulOMP= 363.626667ms
+Number of threads= 3, arrays' size= 25000, average time of mulOMP= 348.093333ms
+Number of threads= 4, arrays' size= 25000, average time of mulOMP= 359.533333ms
 
-Number of threads= 1, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of sumOMP= 8.400000ms
-Number of threads= 2, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of sumOMP= 9.000000ms
-Number of threads= 3, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of sumOMP= 8.933333ms
-Number of threads= 4, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of sumOMP= 8.266667ms
+Number of threads= 1, arrays' size= 50000, average time of sumOMP= 7.813333ms
+Number of threads= 2, arrays' size= 50000, average time of sumOMP= 9.853333ms
+Number of threads= 3, arrays' size= 50000, average time of sumOMP= 9.466667ms
+Number of threads= 4, arrays' size= 50000, average time of sumOMP= 7.586667ms
 
-Number of threads= 1, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of mulOMP= 391.200000ms
-Number of threads= 2, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of mulOMP= 394.200000ms
-Number of threads= 3, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of mulOMP= 391.066667ms
-Number of threads= 4, numbers in range 2^(1000-1), 2^1000-1, arrays' size= 50000, average time of mulOMP= 391.466667ms
+Number of threads= 1, arrays' size= 50000, average time of mulOMP= 719.586667ms
+Number of threads= 2, arrays' size= 50000, average time of mulOMP= 710.733333ms
+Number of threads= 3, arrays' size= 50000, average time of mulOMP= 718.426667ms
+Number of threads= 4, arrays' size= 50000, average time of mulOMP= 780.266667ms
 
-Number of threads= 1, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of sumOMP= 15.266667ms
-Number of threads= 2, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of sumOMP= 15.600000ms
-Number of threads= 3, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of sumOMP= 15.200000ms
-Number of threads= 4, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of sumOMP= 15.066667ms
+Number of threads= 1, arrays' size= 100000, average time of sumOMP= 22.720000ms
+Number of threads= 2, arrays' size= 100000, average time of sumOMP= 22.026667ms
+Number of threads= 3, arrays' size= 100000, average time of sumOMP= 21.853333ms
+Number of threads= 4, arrays' size= 100000, average time of sumOMP= 22.293333ms
 
-Number of threads= 1, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of mulOMP= 1193.266667ms
-Number of threads= 2, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of mulOMP= 1199.000000ms
-Number of threads= 3, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of mulOMP= 1195.800000ms
-Number of threads= 4, numbers in range 2^(2000-1), 2^2000-1, arrays' size= 50000, average time of mulOMP= 1210.933333ms
+Number of threads= 1, arrays' size= 100000, average time of mulOMP= 1679.093333ms
+Number of threads= 2, arrays' size= 100000, average time of mulOMP= 1428.480000ms
+Number of threads= 3, arrays' size= 100000, average time of mulOMP= 1422.333333ms
+Number of threads= 4, arrays' size= 100000, average time of mulOMP= 1429.160000ms
 
