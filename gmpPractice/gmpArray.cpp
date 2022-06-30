@@ -93,7 +93,7 @@ void gmpArray::mul(gmpArray& gmpAr1, gmpArray& gmpAr2)
 	}
 }
 
-void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
+void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2, int numThreads)
 {
 	if (gmpAr1.n != gmpAr2.n)
 	{
@@ -107,7 +107,8 @@ void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
 		}
 
 		int i = 0;
-#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
+		//omp_set_num_threads(numThreads);
+#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i) num_threads(numThreads)
 		for (i = 0; i < n; i++)
 		{
 			mpz_add(values[i], gmpAr1.values[i], gmpAr2.values[i]);
@@ -115,7 +116,7 @@ void gmpArray::sumOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
 	}
 }
 
-void gmpArray::mulOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
+void gmpArray::mulOMP(gmpArray& gmpAr1, gmpArray& gmpAr2, int numThreads)
 {
 	if (gmpAr1.n != gmpAr2.n)
 	{
@@ -129,7 +130,8 @@ void gmpArray::mulOMP(gmpArray& gmpAr1, gmpArray& gmpAr2)
 		}
 
 		int i = 0;
-#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i)
+		//omp_set_num_threads(numThreads);
+#pragma omp parallel for shared(gmpAr1.values, gmpAr2.values, values) private(i) num_threads(numThreads)
 		for (i = 0; i < n; i++)
 		{
 			mpz_mul(values[i], gmpAr1.values[i], gmpAr2.values[i]);

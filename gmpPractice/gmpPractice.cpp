@@ -4,15 +4,51 @@
 #include <vector>
 #include <iterator>
 #include <string>
+#include <fstream>
 
-void timeTest(int ar_size, int pow, int num_mes, std::string task);
+std::string timeTest(int ar_size, int pow, int num_mes, std::string task, int numThreads);
 int main()
 {
-    int n = 100000, k = 1000, m = 100;
-    timeTest(n, k, m, "sum");
-    timeTest(n, k, m, "sumOMP");
-    timeTest(n, k, m, "mul");
-    timeTest(n, k, m, "mulOMP");
+    int n, k, m = 15;
+    std::ofstream fout("time.csv");
+    for (int j = 1; j < 5; j++)
+    {
+        if (j == 1)
+        {
+            n = 10000;
+            k = 1000;
+        }
+
+        if (j == 2)
+        {
+            n = 10000;
+            k = 2000;
+        }
+
+        if (j == 3)
+        {
+            n = 50000;
+            k = 1000;
+        }
+        if (j == 4)
+        {
+            n = 50000;
+            k = 2000;
+        }
+
+        for (int i = 1; i < 5; i++)
+        {
+            fout << timeTest(n, k, m, "sumOMP", i);
+        }
+        fout << '\n';
+        for (int i = 1; i < 5; i++)
+        {
+            fout << timeTest(n, k, m, "mulOMP", i);
+        }
+        fout << '\n';
+    }
+
+    fout.close();
     return 0;
 }
 
@@ -20,37 +56,25 @@ int main()
 //pow - power for randomization(2^(pow-1), 2^pow-1)
 //num_mes - number of measurement the time of working
 //task - sum, sumOMP and other
-void timeTest(int ar_size, int pow, int num_mes, std::string task)
+std::string timeTest(int ar_size, int pow, int num_mes, std::string task, int numThreads)
 {
     double average_time = 0;
     gmpArray op1(ar_size), op2(ar_size), res(ar_size);
-    //res.setRandom(pow);
-    op1.setRandom(pow);
-    op2.setRandom(pow);
-    std::vector<int> time;
     bool b = false;
-    for (int i = 0; i < num_mes; i++)
+    for (int i = 0; i < num_mes + 1; i++)
     {
+        op1.setRandom(pow);
+        op2.setRandom(pow);
         auto begin = std::chrono::steady_clock::now();
 
-        if (task == "sum")
-        {
-            res.sum(op1, op2);
-            b = true;
-        }
         if (task == "sumOMP")
         {
-            res.sumOMP(op1, op2);
-            b = true;
-        }
-        if (task == "mul")
-        {
-            res.mul(op1, op2);
+            res.sumOMP(op1, op2, numThreads);
             b = true;
         }
         if (task == "mulOMP")
         {
-            res.mulOMP(op1, op2);
+            res.mulOMP(op1, op2, numThreads);
             b = true;
         }
         if (!b)
@@ -64,12 +88,15 @@ void timeTest(int ar_size, int pow, int num_mes, std::string task)
         if (i != 0)
         {
             average_time += elapsed_ms.count();
-            time.push_back(elapsed_ms.count());
         }
-        op1.setRandom(pow);
-        op2.setRandom(pow);
+
     }
-    std::cout << "Time was measured " << num_mes << " times, " << "average time of " << task << "= " << average_time / (num_mes) << " ms" << std::endl;
-    copy(time.begin(), time.end(), std::ostream_iterator<int>(std::cout, " "));
-    std::cout << std::endl;
+
+    std::string str;
+    str = "Number of threads= " + std::to_string(numThreads);
+    str += ", numbers in range 2^(" + std::to_string(pow) + "-1), 2^" + std::to_string(pow) + "-1";
+    str += ", arrays' size= " + std::to_string(ar_size);
+    str += ", average time of " + task + "= " + std::to_string(average_time / (num_mes)) + "ms\n";
+
+    return str;
 }
