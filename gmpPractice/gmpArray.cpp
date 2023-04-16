@@ -152,3 +152,42 @@ void gmpArray::setRandom(int k)
 		mpz_rrandomb(values[i], state, k);
 	}
 }
+
+int gmpArray::get_len()
+{
+	return this->n;
+}
+
+//Wrapper C methods for C++ class
+
+//Constructor wrapper
+gmpArray* gmpArray_new(int count)
+{
+	return new gmpArray(count);
+}
+
+//Destructor wrapper
+void gmpArray_del(gmpArray* gmpArray)
+{
+	delete gmpArray;
+}
+
+void gmpArray_resize(gmpArray* gmpArray, int number)
+{
+	gmpArray->resize(number);
+}
+
+void gmpArray_sumOMP(gmpArray& gmpArray1, gmpArray& gmpArray2, int numThreads)
+{
+	gmpArray1.sumOMP(gmpArray1, gmpArray2, numThreads);
+}
+
+void gmpArray_mulOMP(gmpArray& gmpArray1, gmpArray& gmpArray2, int numThreads)
+{
+	gmpArray1.mulOMP(gmpArray1, gmpArray2, numThreads);
+}
+
+int gmpArray_get_len(gmpArray* gmpArray)
+{
+	return gmpArray->get_len();
+}

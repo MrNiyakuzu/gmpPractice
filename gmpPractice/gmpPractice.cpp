@@ -9,7 +9,7 @@
 std::string timeTest(int ar_size, int pow, int num_mes, std::string task, int numThreads);
 int main()
 {
-    int n, k = 2000, m = 75;
+    int n, k = 200, m = 75;
     std::ofstream fout("time.csv");
     for (int j = 1; j < 5; j++)
     {
